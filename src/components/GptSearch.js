@@ -4,13 +4,19 @@ import netbg from "../assets/images/netflix_bg.jpg";
 
 const GptSearch = () => {
   return (
-    <div>
-      <div className="absolute -z-10">
-        <img src={netbg} alt="netflixbg" />
+    <>
+      <div className="fixed -z-10">
+        <img
+          className="h-screen object-cover md:h-full"
+          src={netbg}
+          alt="netflixbg"
+        />
       </div>
-      <GptSearchBar />
-      <GptMovieSuggestions />
-    </div>
+      <div className="">
+        <GptSearchBar />
+        <GptMovieSuggestions />
+      </div>
+    </>
   );
 };
 

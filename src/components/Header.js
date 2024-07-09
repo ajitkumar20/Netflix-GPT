@@ -53,20 +53,20 @@ const Header = () => {
   };
 
   return (
-    <div className="flex absolute w-full px-10 bg-gradient-to-b from-black z-10 justify-between">
+    <div className="flex absolute w-full px-10 bg-gradient-to-b from-black z-10 justify-between flex-col md:flex-row">
       <a href="/">
-        <img className="w-44" src={Logo} alt="netflix_logo" />
+        <img className="w-44 mx-auto md:mx-0" src={Logo} alt="netflix_logo" />
       </a>
       {user && (
-        <div className="flex">
+        <div className="flex justify-between">
           <button
-            className="px-2 m-4 mb-5 rounded-md text-white bg-purple-800 hover:bg-purple-700"
+            className="py-1 md:py-0 px-2 m-4 mb-5 rounded-md text-white bg-purple-800 hover:bg-purple-700"
             onClick={handleGptSearchClick}
           >
-            {showGptSearch ? "Homepage" : "GPT Search"}
+            {showGptSearch ? "Homepage" : "Search"}
           </button>
           <img
-            className="w-10 h-10 rounded-md mt-3"
+            className="hidden md:block w-10 h-10 rounded-md mt-3"
             src={user?.photoURL}
             alt="user-icon"
           />
