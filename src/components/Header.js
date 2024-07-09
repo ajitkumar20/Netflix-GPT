@@ -5,11 +5,13 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../utils/userSlice";
+import { toggleGptSeachView } from "../utils/gptSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
 
   const handleSignOut = () => {
     signOut(auth)
@@ -46,6 +48,10 @@ const Header = () => {
     return () => unsubscribe();
   }, []);
 
+  const handleGptSearchClick = () => {
+    dispatch(toggleGptSeachView());
+  };
+
   return (
     <div className="flex absolute w-full px-10 bg-gradient-to-b from-black z-10 justify-between">
       <a href="/">
@@ -53,6 +59,12 @@ const Header = () => {
       </a>
       {user && (
         <div className="flex">
+          <button
+            className="px-2 m-4 mb-5 rounded-md text-white bg-purple-800 hover:bg-purple-700"
+            onClick={handleGptSearchClick}
+          >
+            {showGptSearch ? "Homepage" : "GPT Search"}
+          </button>
           <img
             className="w-10 h-10 rounded-md mt-3"
             src={user?.photoURL}
@@ -60,7 +72,7 @@ const Header = () => {
           />
           <button
             onClick={handleSignOut}
-            className="font-semibold hover:text-white"
+            className="text-white font-semibold hover:text-gray-300"
           >
             (Sign Out)
           </button>
