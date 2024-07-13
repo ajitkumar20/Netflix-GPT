@@ -11,6 +11,7 @@ import {
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import Footer from "./Footer";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -139,6 +140,9 @@ const Login = () => {
             : "Already registered? Sign In now."}
         </p>
       </form>
+      <div className="z-10 w-full absolute mt-[183.4%] md:mt-[42%] bg-opacity-70">
+        <Footer />
+      </div>
     </div>
   );
 };
