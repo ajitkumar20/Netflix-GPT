@@ -1,1 +1,1 @@
-# NetFlix GPT
+# NetFlix
